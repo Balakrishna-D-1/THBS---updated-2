@@ -39,15 +39,18 @@
         Rs.<span th:utext="${prodInfo.price}"></span><br>
       </p>
       <h6 class="h6_offer">2 colors</h6>
-      <a th:href="@{|/buyProduct?code=${prodInfo.code}|}" class="btn btn-link" >Buy Now</a>
+       <a href="/Buy">Buy</a>
+      <a th:href="@{|/buyProduct?code=${prodInfo.code}|}" class="btn btn-link" >Add Cart</a>
             </div>
              </div>
+
              
              <!-- For Manager edit Product -->
             <th:block sec:authorize="hasAuthority('ROLE_MANAGER')">
                
                  <a style="color:red;"
                     th:href="@{|/admin/product?code=${prodInfo.code}|}">Edit Product</a>
+
                
             </th:block>
             </div>

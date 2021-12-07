@@ -92,6 +92,12 @@ public class MainController {
  public String getResultpage() {
 	 return "/Practice_ac.php";
  }
+ @GetMapping("/payment")
+ public String getPaymentpage() {
+	 return "/payment";
+ }
+
+ 
  
    // Product List
    @RequestMapping({ "/productList" })
@@ -170,6 +176,26 @@ public class MainController {
       model.addAttribute("cartForm", myCart);
       model.addAttribute("myCart", cartInfo);
       return "shoppingCart";
+   }
+     @RequestMapping(value = { "/Buy" }, method = RequestMethod.POST)
+   public String buyUpdateQty(HttpServletRequest request, //
+         Model model, //
+         @ModelAttribute("cartForm") CartInfo cartForm) {
+ 
+      CartInfo cartInfo = Utils.getCartInSession(request);
+      cartInfo.updateQuantity(cartForm);
+ 
+      return "redirect:/Buy";
+   }
+   
+   @RequestMapping(value = { "/Buy" }, method = RequestMethod.GET)
+   public String buyHandler(HttpServletRequest request, Model model) {
+      CartInfo myCart = Utils.getCartInSession(request);
+      CartInfo cartInfo = Utils.getCartInSession(request);
+ 
+      model.addAttribute("cartForm", myCart);
+      model.addAttribute("myCart", cartInfo);
+      return "Buy";
    }
  
    // GET: Enter customer information.
