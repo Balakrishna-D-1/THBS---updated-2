@@ -15,14 +15,48 @@
    <body>
       
       <th:block th:include="/_menu"></th:block>
-       
-      <div class="page-title">Finalize</div>
-      <div class="container">
-         <h3>Thank you for Order</h3>
-         Your order number is: <span th:utext="${lastOrderedCart.orderNum}"></span>
+       <head>
+	<title>Payments Page</title>
+	          <th:block th:if="${cartForm != null && cartForm.cartLines != null && !cartForm.cartLines.empty}">
+	         <form method="POST" th:object="${cartForm}" th:action="@{/Buy}">
+
+</head>
+
+<body>
+	<style>
+	h1 {
+		text-align: center;
+		font-size: 30px;
+		color: black;
+		background-color: yellow;
+		}
+		h2 {
+					margin-left: 100px;
+
+		}
+		.body {
+			background-color: lightgray;
+		}
+		p1 {
+		margin-left: 100px;
+		color: red;
+		}
+		p {
+					margin-left: 100px;
+
+		}
+	</style>
+	
+</body>
+<div class="body">
+<h1>Please complete Your Shopping through below Transcations</h1><br><br>
+
+<h2>Transcation Methods</h2><br>
+<p1><a style="color: red" href="/payment">1. Credit / Debit Card</a></p1><br><br>
+<p1><a style="color: red" href="https://dashboard.razorpay.com/signin?screen=sign_in&next=app%2Fdashboard">2. UPI - Razorpay</a></p1><br><br>
+<p1><a style="color: red" href="/orderSuccess">3. Cash On Deliver</a></p1>
+<br><br>
+  
       </div>
-       <div>
-<img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/31fe3938221437.5968c5a847d93.gif" alt="365.Online - ecommerce on Behance" jsname="HiaYvf" jsaction="load:XAeZkd;" class="n3VNCb" data-noaft="1" style="width: 100%; height: 600px; margin: 0px;">      <th:block th:include="/_footer"></th:block>
-       
    </body>
 </html>

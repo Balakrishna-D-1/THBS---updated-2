@@ -52,7 +52,7 @@
           <table class="table">
           
           <th:block th:if="${cartForm != null && cartForm.cartLines != null && !cartForm.cartLines.empty}">
-         <form method="POST" th:object="${cartForm}" th:action="@{/paymet}">
+         <form method="POST" th:object="${cartForm}" th:action="@{/Buy}">
           
                <div class="product-preview-container"
                         th:each="cartLineInfo, varStatus : ${cartForm.cartLines}">
